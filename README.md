@@ -17,7 +17,7 @@ Buka file index.html untuk melihat daftar penyelesaian atau bisa dengan membuka 
         <li><a href="soal7.html">Soal No.7</a></li>
         <li><a href="soal8_testdebug.html">Soal No.8</a></li>
         <li><a href="#">Soal No.9</a>
-            <ol>
+            <ul>
                 <li>Syarat install npm dan nodejs</li>
                 <li>Masuk ke folder</li>
                 <li>npm install</li>
@@ -27,7 +27,7 @@ Buka file index.html untuk melihat daftar penyelesaian atau bisa dengan membuka 
                 <li>atur parameter header: User-id:ifabula dan Scope:user</li>
                 <li>GET /api/data</li>
                 <li>POST /api/login {username,password}</li>
-            </ol>
+            </ul>
         </li>
         <li><a href="soal10_11.html">Soal No.10 & No.11</a></li>
     </ul>
