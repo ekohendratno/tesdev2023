@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<h2>Soal No.2</h2>
+
+	<h1>Informasi:</h1>
+	<label id="infoLabel"></label>
+	<br><br>
+	<button onclick="changeLabel()">Ubah Informasi</button>
+
+	<script>
+		var info = [{
+			"nama": "Agus Prayoga",
+			"umur": 25,
+			"pekerjaan": "Programmer"
+		},
+		{
+			"nama": "Eko Kurniansyah",
+			"umur": 30,
+			"pekerjaan": "Desainer Grafis"
+		},
+		{
+			"nama": "Andre Taulani",
+			"umur": 40,
+			"pekerjaan": "Musisi"
+		}];
+
+		var infoLabel = document.getElementById("infoLabel");
+		var index = 0;
+
+		function changeLabel() {
+			index = (index + 1) % info.length;
+			infoLabel.innerHTML = "Nama: " + info[index].nama + "<br>" +
+				"Umur: " + info[index].umur + "<br>" +
+				"Pekerjaan: " + info[index].pekerjaan;
+		}
+
+		// initialize label with initial value
+		changeLabel();
+
+	</script>
+
+</body>
+
+</html>

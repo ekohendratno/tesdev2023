@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<h2>Soal No.7</h2>
+
+	<script>
+
+		function hashString(str) {
+			const encoder = new TextEncoder();
+			const data = encoder.encode(str);
+			return crypto.subtle.digest('SHA-256', data).then(buffer => {
+				let hex = '';
+				const view = new DataView(buffer);
+				for (let i = 0; i < buffer.byteLength; i += 4) {
+					hex += ('00000000' + view.getUint32(i).toString(16)).slice(-8);
+				}
+				return hex;
+			});
+		}
+
+		
+		// contoh penggunaan
+		const str = '01112018kenpriaifabula';
+		hashString(str).then(hashedStr => {
+			console.log(hashedStr);
+		});
+
+	</script>
+
+</body>
+
+</html>

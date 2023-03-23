@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+	<h1>Halaman Login</h1>
+	<div id="login-form">
+		<label for="username">Username:</label>
+		<input type="text" id="username">
+		<label for="password">Password:</label>
+		<input type="password" id="password">
+		<button onclick="login()">Login</button>
+	</div>
+	<div id="welcome">
+		<p>Selamat datang, <span id="username-welcome"></span>!</p>
+		<button onclick="logout()">Logout</button>
+	</div>
+	<script>
+		function login() {
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			if (username && password) {
+				localStorage.setItem('username', username);
+				localStorage.setItem('password', password);
+				showWelcome();
+			} else {
+				alert('Mohon isi username dan password.');
+			}
+		}
+		function logout() {
+			localStorage.removeItem('username');
+			localStorage.removeItem('password');
+			showLoginForm();
+		}
+		function showLoginForm() {
+			document.getElementById('login-form').style.display = 'block';
+			document.getElementById('welcome').style.display = 'none';
+			document.getElementById('username').value = '';
+			document.getElementById('password').value = '';
+		}
+		function showWelcome() {
+			const username = localStorage.getItem('username');
+			document.getElementById('username-welcome').textContent = username;
+			document.getElementById('login-form').style.display = 'none';
+			document.getElementById('welcome').style.display = 'block';
+		}
+		const username = localStorage.getItem('username');
+		const password = localStorage.getItem('password');
+		if (username && password) {
+			showWelcome();
+		} else {
+			showLoginForm();
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "projectdev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "i.js",
+  "scripts": {
+    "start": "nodemon soal9_node.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ekohendratno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.22"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<h2>Soal No.3</h2>
+
+    <button onclick="makeRequest()">Make Request</button>
+
+	<script>
+		
+		function makeRequest() {
+			const url = "http://jsonplaceholder.typicode.com/posts";
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => console.log(data))
+				.catch((error) => console.error(error));
+		}
+
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th,
+		td {
+			text-align: left;
+			padding: 8px;
+		}
+
+		th {
+			background-color: #ddd;
+		}
+
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h2>Soal No.5</h2>
+
+	<button onclick="makeRequest()">Make Request</button>
+
+	<br/>
+	<br/>
+	
+	<table id="data-table">
+		<thead>
+			<tr>
+				<th>User ID</th>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Body</th>
+				<th>Aksi</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+	<script>
+		const tableBody = document.querySelector("#data-table tbody");
+
+		function makeRequest() {
+			const url = "http://jsonplaceholder.typicode.com/posts";
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => {
+					tableBody.innerHTML = "";
+
+					for (let i = 0; i < Math.min(data.length, 10); i++) {
+
+						// hapus "userId" key dari objek
+						if(i == 3) delete data[i].userId;
+
+						const row = document.createElement("tr");
+						const userIdCell = document.createElement("td");
+						const idCell = document.createElement("td");
+						const titleCell = document.createElement("td");
+						const bodyCell = document.createElement("td");
+						const deleteCell = document.createElement("td");
+						const deleteButton = document.createElement("button");
+
+						userIdCell.textContent = data[i].userId;
+						idCell.textContent = data[i].id;
+						titleCell.textContent = data[i].title;
+						bodyCell.textContent = data[i].body;
+
+						deleteButton.textContent = "Delete";
+						deleteButton.addEventListener("click", () => {
+							deletePost(data[i].id, deleteButton);
+
+						});
+						deleteCell.appendChild(deleteButton);
+
+
+						row.appendChild(userIdCell);
+						row.appendChild(idCell);
+						row.appendChild(titleCell);
+						row.appendChild(bodyCell);
+						row.appendChild(deleteCell);
+						row.setAttribute("data-id", data[i].id);
+
+						tableBody.appendChild(row);
+					}
+				})
+				.catch((error) => console.error(error));
+		}
+
+		function deletePost(postId, deleteButton) {
+			const url = `http://jsonplaceholder.typicode.com/posts/${postId}`;
+			fetch(url, {
+				method: "DELETE",
+			})
+				.then((response) => {
+					if (!response.ok) {
+						throw new Error(`HTTP error! status: ${response.status}`);
+					}
+					console.log(`Post ${postId} has been deleted`);
+
+
+					const row = deleteButton.closest("tr");
+					row.parentNode.removeChild(row);
+
+				})
+				.catch((error) => console.error(error));
+		}
+
+
+	</script>
+
+</body>
+
+</html>
