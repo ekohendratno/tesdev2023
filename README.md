@@ -6,7 +6,7 @@ Buka file index.html untuk melihat daftar penyelesaian atau bisa dengan membuka 
 
 
 ##Daftar Penyelesaian Soal
-    <p>Harap buka console</p>
+    <p>Harap buka browser dan aktifkan console log</p>
     <ul>
         <li><a href="soal1.html">Soal No.1</a></li>
         <li><a href="soal2.html">Soal No.2</a></li>
@@ -33,7 +33,7 @@ Buka file index.html untuk melihat daftar penyelesaian atau bisa dengan membuka 
     </ul>
 
 ##Daftar Penyelesaian Soal Pseudocode
-    <p>Harap buka console</p>
+    <p>Harap buka browser dan aktifkan console log</p>
     <ul>
         <li><a href="soal_pseudocode.html">Soal No.1 sampai No.4</a>
     </li>
